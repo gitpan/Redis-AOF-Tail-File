@@ -1,12 +1,10 @@
 use 5.008008;
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
 WriteMakefile(
     NAME              => 'Redis::AOF::Tail::File',
-    VERSION_FROM      => 'lib/Redis/AOF/Tail/File.pm', # finds $VERSION
-    PREREQ_PM         => {}, # e.g., Module::Name => 1.1
-    ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM  => 'lib/Redis/AOF/Tail/File.pm', # retrieve abstract from module
-       AUTHOR         => '陈 钢 <chengang@apple.com>') : ()),
+    VERSION_FROM      => 'lib/Redis/AOF/Tail/File.pm',
+    PREREQ_PM         => { 'File::Tail' => 0.99.3 }, 
+    ($] >= 5.005 ?
+      (ABSTRACT_FROM  => 'lib/Redis/AOF/Tail/File.pm',
+       AUTHOR         => 'Chen Gang <yikuyiku.com@gmail.com>') : ()),
 );

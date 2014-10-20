@@ -1,13 +1,13 @@
 ---
-abstract: 'Perl extension for blah blah blah'
+abstract: 'Read redis aof file in realtime'
 author:
-  - '陈 钢 <chengang@apple.com>'
+  - 'Chen Gang <yikuyiku.com@gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.9, CPAN::Meta::Converter version 2.120921'
+generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380'
 license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -17,5 +17,6 @@ no_index:
   directory:
     - t
     - inc
-requires: {}
-version: 0.01
+requires:
+  File::Tail: 0
+version: 0.02

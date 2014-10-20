@@ -4,3 +4,6 @@ Revision history for Perl extension Redis::AOF::Tail::File.
 	- original version; created by h2xs 1.23 with options
 		-A -X -n Redis::AOF::Tail::File -b 5.8.8
 
+0.02  Mon Oct 20 11:24:15 2014
+	- finish the extension
+
