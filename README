@@ -1,7 +1,7 @@
-Redis-AOF-Tail-File version 0.02
+Redis-AOF-Tail-File version 0.03
 ================================
 
-This extension can be used for persistence data from redis to MySQL.
+This extension can be used for synchronous data asynchronously from redis to MySQL.
 Maybe you can code like below.
 
   use DBI;
