@@ -32,10 +32,10 @@
       },
       "runtime" : {
          "requires" : {
-            "File::Tail" : "v0.99.3"
+            "File::Tail::Lite" : "0.02"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.03"
+   "version" : "0.04"
 }
