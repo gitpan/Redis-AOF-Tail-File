@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use File::Tail::Lite;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub new {
     my $pkg  = shift;
@@ -37,6 +37,7 @@ sub read_command {
 
     while ( my ( $pos, $line ) = $self->{FILE_TAIL_FH}->readline() ) {
         $line =~ s/\s//g;
+        next if length($line) == 0;
         push @{ $self->{ARRAY_REDIS_AOF} }, $line;
         while ( defined ${ $self->{ARRAY_REDIS_AOF} }[0]
             and ${ $self->{ARRAY_REDIS_AOF} }[0] !~ /^\*\d/ )
@@ -97,7 +98,11 @@ Maybe you can code like below.
   my $dbh = DBI->connect($data_source, $username, $auth, \%attr);
   my $aof_file       = "/var/redis/appendonly.aof";
   my $seek_stor_file = "/var/redis/seek_stor_file";
-  my $aof_seek_pos   = ${retrieve $seek_stor_file};
+  my $aof_seek_pos = 'eof';
+  if (-e $seek_stor_file and -s $seek_stor_file)
+  {
+    $aof_seek_pos = ${retrieve $seek_stor_file} if -s $seek_stor_file;
+  }
 
   my $redis_aof = Redis::AOF::Tail::File->new(aof_filename => $aof_file, seekpos => $aof_seek_pos);
   while (my ($pos, $cmd) = $redis_aof->read_command)
