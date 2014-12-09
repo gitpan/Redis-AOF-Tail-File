@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use File::Tail::Lite;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 sub new {
     my $pkg  = shift;
@@ -99,10 +99,7 @@ Maybe you can code like below.
   my $aof_file       = "/var/redis/appendonly.aof";
   my $seek_stor_file = "/var/redis/seek_stor_file";
   my $aof_seek_pos = 'eof';
-  if (-e $seek_stor_file and -s $seek_stor_file)
-  {
-    $aof_seek_pos = ${retrieve $seek_stor_file} if -s $seek_stor_file;
-  }
+  $aof_seek_pos = ${retrieve $seek_stor_file} if -s $seek_stor_file;
 
   my $redis_aof = Redis::AOF::Tail::File->new(aof_filename => $aof_file, seekpos => $aof_seek_pos);
   while (my ($pos, $cmd) = $redis_aof->read_command)

@@ -17,3 +17,6 @@ Revision history for Perl extension Redis::AOF::Tail::File.
 
 0.05  Mon Dec  8 18:01:30 2014
   - bug fix
+
+0.06  Tue Dec  9 16:32:30 2014
+  - pod fix
